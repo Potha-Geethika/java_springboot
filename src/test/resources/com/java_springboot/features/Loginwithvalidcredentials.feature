@@ -32,3 +32,18 @@ Scenario Outline: Login with valid credentials
   Examples:
     | email                                                                                                                                                                                                                     | password           |
     | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | validPassword123   |
+
+@valid-login
+Scenario Outline: Login with valid credentials
+  When I enter "<email>"
+  And I enter "<password>"
+  And the user clicks the login button
+  Then the home screen should load
+  And the user should be navigated to the home screen
+  And the Google Map is displayed correctly
+  And the menu bar and recenter icon are visible
+
+  Examples:
+    | email                                                                                                                                                                                                                     | password         |
+    | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa |
+    | validPassword123                                                                                                                                                                                                         |
